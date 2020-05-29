@@ -6,8 +6,222 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <link href="assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
+  <link href="assets/css/slick.css" rel="stylesheet" type="text/css" />
+  <link href="assets/css/slick-theme.css" rel="stylesheet" type="text/css" />
+  <link href="assets/css/animate.css" rel="stylesheet" type="text/css" />
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+  <link href="assets/css/styles.css" rel="stylesheet" type="text/css" />
+  <link href="assets/css/responsive.css" rel="stylesheet" type="text/css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <script type="text/javascript" src="assets/js/jquery.min.js"></script>
+      <title>
+    :: CFO ::
+  </title></head>
+
+
 </head>
 <body>
   <app-root></app-root>
+
+
+
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="assets/js/wow.min.js"></script>
+  <script type="text/javascript" src="assets/js/slick.js"></script>
+  <script type="text/javascript" src="assets/js/animate.js"></script>
+  
+  <script>
+      function showResult() {
+          var vl = document.getElementById('search').value;
+
+          if (vl != '' && vl != undefined && vl != null) {
+              window.location = '/Search.aspx?Keyword=' + vl;
+          }
+      }
+
+      var TRange = null;
+
+      function findString(str) {
+          if (parseInt(navigator.appVersion) < 4) return;
+          var strFound;
+          if (window.find) {
+
+              // CODE FOR BROWSERS THAT SUPPORT window.find
+
+              strFound = self.find(str);
+              if (!strFound) {
+                  strFound = self.find(str, 0, 1);
+                  while (self.find(str, 0, 1)) continue;
+              }
+          }
+          else if (navigator.appName.indexOf("Microsoft") != -1) {
+
+              // EXPLORER-SPECIFIC CODE
+
+              if (TRange != null) {
+                  TRange.collapse(false);
+                  strFound = TRange.findText(str);
+                  if (strFound) TRange.select();
+              }
+              if (TRange == null || strFound == 0) {
+                  TRange = self.document.body.createTextRange();
+                  strFound = TRange.findText(str);
+                  if (strFound) TRange.select();
+              }
+          }
+          else if (navigator.appName == "Opera") {
+              alert("Opera browsers not supported, sorry...")
+              return;
+          }
+          if (!strFound) alert("String '" + str + "' not found!")
+          return;
+      }
+
+  </script>
+  <script>
+      window.onscroll = function () { myFunction() };
+
+      var header = document.getElementById("myHeader");
+      var sticky = header.offsetTop;
+
+      function myFunction() {
+          if (window.pageYOffset > sticky) {
+              header.classList.add("sticky");
+          } else {
+              header.classList.remove("sticky");
+          }
+      }
+  </script>
+  <script>new WOW().init();</script>
+  <script>
+      $('.carousel').carousel({
+          pause: "false"
+      });
+
+      // Slick SLider
+      $(document).on('ready', function () {
+
+          if ($("#hfWhatonCount").val() == "0") {
+              $(".whatsOn").slick({
+                  dots: false,
+                  arrow: true,
+                  infinite: true,
+                  slidesToShow: 2,
+                  slidesToScroll: 1,
+                  responsive: [
+                      {
+                          breakpoint: 1024,
+                          settings: {
+                              slidesToShow: 1,
+                              slidesToScroll: 1,
+                              infinite: true,
+                              dots: true
+                          }
+                      },
+                      {
+                          breakpoint: 600,
+                          settings: {
+                              slidesToShow: 1,
+                              slidesToScroll: 1
+                          }
+                      },
+                      {
+                          breakpoint: 480,
+                          settings: {
+                              slidesToShow: 1,
+                              slidesToScroll: 1
+                          }
+                      }
+                  ]
+              });
+          }
+          else {
+              $(".whatsOn1").slick({
+                  dots: false,
+                  arrow: true,
+                  infinite: true,
+                  slidesToShow: 4,
+                  slidesToScroll: 1,
+                  responsive: [
+                      {
+                          breakpoint: 1024,
+                          settings: {
+                              slidesToShow: 1,
+                              slidesToScroll: 1,
+                              infinite: true,
+                              dots: true
+                          }
+                      },
+                      {
+                          breakpoint: 600,
+                          settings: {
+                              slidesToShow: 1,
+                              slidesToScroll: 1
+                          }
+                      },
+                      {
+                          breakpoint: 480,
+                          settings: {
+                              slidesToShow: 1,
+                              slidesToScroll: 1
+                          }
+                      }
+                  ]
+              });
+          }
+
+
+
+
+          // Partner
+          $(".our-partner").slick({
+              dots: false,
+              arrow: false,
+              autoplay: true,
+              infinite: true,
+              slidesToShow: 4,
+              slidesToScroll: 1,
+
+              responsive: [
+                  {
+                      breakpoint: 1024,
+                      settings: {
+                          slidesToShow: 3,
+                          slidesToScroll: 1,
+                          infinite: true,
+                          dots: true
+                      }
+                  },
+                  {
+                      breakpoint: 600,
+                      settings: {
+                          slidesToShow: 2,
+                          slidesToScroll: 1
+                      }
+                  },
+                  {
+                      breakpoint: 480,
+                      settings: {
+                          slidesToShow: 1,
+                          slidesToScroll: 1
+                      }
+                  }
+              ]
+          });
+
+      });
+
+      // Dropdown Menu
+
+      $('.main-menu li.dropdown').hover(function () {
+          $(this).find('.dropdown-menu').stop(true, true).delay(100).fadeIn(300);
+      }, function () {
+          $(this).find('.dropdown-menu').stop(true, true).delay(100).fadeOut(300);
+      });
+  </script>
 </body>
 </html>

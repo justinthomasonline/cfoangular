@@ -1,0 +1,183 @@
+<div id="myCarousel" class="carousel banners wow zoomInLeft slide" data-wow-delay=".2s" data-ride="carousel" *ngIf="pagedetails['banner']">
+    <div class="carousel-inner" role="listbox">
+        
+        <div class="banner-bar item" *ngFor="let banner of pagedetails['banner']; let isFirst = first" [class.active]="isFirst">
+            <img src="assets/UploadsAll/HomeSlider/2019-8-18-16-52-5034.jpg" alt="" />
+            <div class="banner-text">
+                <div class="banner-title">
+                    <h1>.</h1>
+                </div>
+                <div class="banner-descreption">&nbsp;&nbsp;</div>
+            </div>
+        </div>
+
+
+
+        <div class="banner-bar item">
+            <img src="assets/UploadsAll/HomeSlider/2019-8-18-16-52-5034.jpg" alt="" />
+            <div class="banner-text">
+                <div class="banner-title">
+                    <h1>.</h1>
+                </div>
+                <div class="banner-descreption">&nbsp;&nbsp;</div>
+            </div>
+        </div>
+
+        
+    </div>
+    <!-- <div class="ro_al">
+        <a class="previous" href="#myCarousel" role="button" data-slide="prev">
+            <span class=" " aria-hidden="true"></span><span class="sr-only">
+                <i style="font-size: 24px" class="fa">&#xf053;</i>
+            </span> 
+        </a>
+        
+        <a class="next" href="#myCarousel" role="button" data-slide="next">
+            <span class=" " aria-hidden="true"></span><span class="sr-only">
+                <i style="font-size: 24px" class="fa">&#xf054;</i>
+            </span> 
+        </a>
+    </div>
+    <div class="down-arrow">
+        <a href="#">
+            <img src="assets/images/arrow.png" alt="" /></a>
+    </div> -->
+</div>
+
+<div class="clearfix"></div>
+
+<div class="home-main" data-wow-delay=".4s">
+
+
+    <section class="about-us wow flipInX" *ngIf="pagedetails['homepageContent']">
+        <div class="container">
+            
+            <div class="row">
+                <div class="about">
+                    <h2 class="wow fadeInRight" data-wow-delay=".4s">{{ pagedetails['homepageContent'][0]?.ContentTitle}}</h2>
+                    <div class="center">
+                        <span class="underline-b"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+                    </div>
+                    <div class="about-text wow fadeInLeft" data-wow-delay=".6s" [innerHTML]="pagedetails['homepageContent'][0]?.content | safeHtml">
+                       
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="courses-section"  *ngIf="pagedetails['course']">
+        <div class="courses">
+            <div class="container">
+                <div class="courses-contents">
+                    <h2 class="wow flipInY">COURSES</h2>
+                    <div class="center">
+                        <span class="underline-b"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+                    </div>
+                    <div class="boxes">
+                        <div class="row">
+                            
+                            
+                            <div class="col-sm-6 col-md-3" *ngFor="let course of pagedetails['course']">
+                                <div class="box wow zoomIn" data-wow-delay=".2s">
+                                    <div class="box-image">
+
+                                        <img src="http://localhost/adminCms/upload/course/{{course.FeaturedImage}}"  />
+
+                                    </div>
+                                    <div class="top-sec">
+                                        <img src="assets/images/boxes.png" />
+                                    </div>
+                                    <div class="box-text">
+                                        <h3>{{course.ContentTitle}}</h3>
+                                       <div [innerHTML]="course.content|truncatetext:150"></div>
+                                        <a [routerLink]="['/page/'+course.contentUrl]" class="button">KNOW MORE</a>
+                                    </div>
+                                </div>
+                            </div>
+                          
+                            
+                          
+                            
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    
+    <section class="our-parteners">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="whats-on">
+                        <div class="whats-on-title wow fadeInLeft">
+                            <h2>WHAT’S ON</h2>
+                        </div>
+                        <span class="underline-b"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+                        <div class="whatsOn1 slider">
+                            
+                            <div class="slick-item">
+                               
+                                
+                            <a data-fancybox="gallery" href="assets/UploadsAll/HomeWhatson/2020-4-13-12-46-24avril2020.png"><img src="assets/UploadsAll/HomeWhatson/2020-4-13-12-46-24avril2020_thumb.png"></a>
+
+           
+                            </div>
+                            
+                            <div class="slick-item">
+                               
+                                
+                            <a data-fancybox="gallery" href="assets/UploadsAll/HomeWhatson/2020-4-15-11-46-43whatson%20arab.png"><img src="assets/UploadsAll/HomeWhatson/2020-4-15-11-46-43whatson%20arab_thumb.png"></a>
+
+                            
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="our-parteners" *ngIf="pagedetails['partners']">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="our-parteners-sec">
+                        <h2>OUR PARTNERS</h2>
+                        <span class="underline-b"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+                    </div>
+                    <div class="our-partner slider" >
+                        
+                        
+                        <div class="slick-item" *ngFor="let partners of pagedetails['partners']">
+                            <a href="#">
+                                <img src="http://localhost/adminCms/upload/parnters/{{partners.FeaturedImage}}" style="width:188px;height:135px" /></a>
+                        </div>
+                        
+                   
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+    </div>

@@ -1,0 +1,52 @@
+<footer>
+    <!-- <input type="hidden" name="ctl00$hfWhatonCount" id="hfWhatonCount" value="1" />
+    <div id="NewsLetterSection" class="footer-top">
+        <div class="container hide">
+            <div class="row">
+                <div class="subscriping">
+                    <div class="col-sm-6 hide">
+                        <p >Enter Your email and we'll send you more information of courses</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="sumiting1">
+                            <span id="RequiredFieldValidator3" style="color:Red;display:none;">Required Field</span>
+                            <span id="RegularExpressionValidator2" style="color:Red;display:none;">Invalid Email Address</span>
+                            <input name="ctl00$EmailIDTextBox" type="text" maxlength="255" id="EmailIDTextBox" placeholder="Enter Your Email Address" />
+
+                        </div>
+                        <div class="sumiting1">
+                            <input name="ctl00$SecurityCodeLoginTextBox" type="text" id="SecurityCodeLoginTextBox" placeholder="Security Code(required)" autocomplete="off" style="width:211px;" />
+                            <span class="wpcf7-form-control-wrap your-message">
+                                <img id="ImgCaptcha" class="securityimg" src="captcha.jpg" />
+                                <span id="ctl15" style="color:Red;display:none;">Required Field</span>
+                            </span>
+                            <input type="submit" name="ctl00$Submit" value="Submit" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$Submit&quot;, &quot;&quot;, true, &quot;MasterContact&quot;, &quot;&quot;, false, false))" id="Submit" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <div class="footer-botton">
+        <div class="container">
+            <div class="row">
+                <div class="footer-menu">
+                    <ul>
+
+                        <li *ngFor="let menu of footerMenu" class="active-footer">
+
+                            <a [routerLink]="['/page/'+menu.menuUrl]"> {{ menu.menuTitle | uppercase }} </a>
+
+                        </li>
+                        
+                        
+                        
+                    </ul>
+                </div>
+                <div class="cobyright-sec">
+                    <p>Copyright &copy; {{ copyrightyear }} Centre Franco Omanais. All Rights Reseved</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

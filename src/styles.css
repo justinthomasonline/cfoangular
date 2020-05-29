@@ -1,1 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+.contents p span
+{
+    font-family: Calibri, sans-serif;
+    font-size: 16pt;
+    color: #000000;
+    
+}

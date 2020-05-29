@@ -1,0 +1,151 @@
+<div class="clearfix"></div>
+<div class="inner-page-title">
+    <div class="banner-text">
+        <div class="banner-title">
+            <h1>{{pagedetails[0]?.ContentTitle}}</h1>
+        </div>
+    </div>
+    <div class="overlay"></div>
+    <img src="assets/UploadsAll/Pages/52c201b0-d5ca-4368-82f3-e6fefbf68674.jpg" alt="">
+</div>
+<div class="clearfix"></div>
+<div class="inner-main inner-pages" data-wow-delay=".4s">
+    <section class="wow flipInX">
+        <div class="container">
+            <div class="exam-page">
+                <div class="row">
+                    
+
+
+                    <div class="col-sm-12">
+                        <div class="left-title wow fadeInLeft">
+                            <h2>{{pagedetails[0]?.ContentTitle}}</h2>
+                            <span class="underline-b"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+                        </div>
+
+                        
+                        <div>
+                            <br>
+                            <div>&nbsp;</div>
+                            
+                            <div class="contents"  [innerHTML]='pagedetails[0]?.Content | safeHtml'>
+
+                            </div>
+
+                        </div>
+
+
+                       
+
+                     
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <div *ngIf="hasContentMore(pagedetails[0]?.Content_more.length)">
+    <section class="wow flipInX" *ngFor="let contentmore of pagedetails[0]?.Content_more; last as isLast">
+           
+        <div class="container">
+
+            <div [ngClass]="{'exam-page-down':isLast}">   
+            <div class="adults">
+                <div class="row">
+                   
+                            <div class="col-sm-12 mt-20">
+                                
+                                <div class="left-title wow fadeInLeft">
+                                    <h2>{{contentmore?.InfoTitle}}</h2>
+                                    <span class="underline-b"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+                                </div>
+                                
+                                <div [ngClass]="{'white-box-left': contentmore.InfoBoxed === '1'}" >
+
+                                    <div class="contents"  [innerHTML]='contentmore?.InfoMessage | safeHtml'>
+
+                                </div>
+                                  
+                                    
+                                </div>
+
+                            </div>
+                       
+                    </div>
+             
+            </div>
+            </div>
+
+        </div>
+       
+    </section>
+</div>
+
+
+  
+<section class="wow flipInX contact-form">
+    <div class="container">
+        <div class="left-title wow fadeInLeft">
+            <h2>General Information</h2>
+            <span class="underline-b"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+        </div>
+        <p class="mt-20">
+            LEAVE US A MESSAGE</p>
+
+        <div class="form-section">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-row">
+                        <label>Your Name</label>
+                        <input name="ctl00$ContentPlaceHolder1$FullName" type="text" maxlength="500" id="ContentPlaceHolder1_FullName" class="form-control" placeholder="Enter Your Name" autocomplete="off" />                                
+                        <span id="ContentPlaceHolder1_RequiredFieldValidator2" style="color:Red;display:none;">Required Field</span>
+                    </div>
+
+                    <div class="form-row">
+                        <label>Your Email</label>
+                        <span id="ContentPlaceHolder1_RequiredFieldValidator3" style="color:Red;display:none;">Required Field</span>
+                        <span id="ContentPlaceHolder1_RegularExpressionValidator2" style="color:Red;display:none;">Invalid Email Address</span>
+                        <input name="ctl00$ContentPlaceHolder1$EmailIDTextBox" type="text" maxlength="255" id="ContentPlaceHolder1_EmailIDTextBox" class="form-control" placeholder="Enter Your Email" />
+                    </div>
+                    <div class="form-row">
+                        <label>Your Phone Number</label>
+                        <input name="ctl00$ContentPlaceHolder1$PhoneNoTextBox" type="text" id="ContentPlaceHolder1_PhoneNoTextBox" class="form-control" placeholder="Enter Your Contact Number" />
+                        <span id="ContentPlaceHolder1_RequiredFieldValidator1" MaxLength="50" style="color:Red;display:none;">Required Field</span>
+                        <span id="ContentPlaceHolder1_RegularExpressionValidator1" style="color:Red;visibility:hidden;">Only Numbers allowed</span>
+                    </div>
+
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-row">
+                        <label>Your Message</label>
+                        <textarea name="ctl00$ContentPlaceHolder1$CommentTextBox" rows="2" cols="20" id="ContentPlaceHolder1_CommentTextBox" class="form-control" placeholder="Enter Your Message">
+</textarea>
+                    </div>
+                    <!-- <div class="form-row">
+                        <label>Security Code</label>
+                        <input name="ctl00$ContentPlaceHolder1$SecurityCodeLoginTextBox" type="text" id="ContentPlaceHolder1_SecurityCodeLoginTextBox" class="form-control securitytxt" autocomplete="off" style="width:120px;" />
+                        <span class="wpcf7-form-control-wrap your-message">
+                            <img id="ContentPlaceHolder1_ImgCaptcha" class="securityimg" src="captcha.jpg" />
+                            <span id="ContentPlaceHolder1_ctl00" style="color:Red;display:none;">Required Field</span>
+                        </span>
+                    </div> -->
+                    <div class="form-row">
+                        <div class="form-btn">
+                            <input type="submit" name="ctl00$ContentPlaceHolder1$Submit" value="Submit" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$ContentPlaceHolder1$Submit&quot;, &quot;&quot;, true, &quot;Contact&quot;, &quot;&quot;, false, false))" id="ContentPlaceHolder1_Submit" class="blue-btn" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</section>
+
+
+    
+</div>
+
+

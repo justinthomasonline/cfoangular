@@ -1,0 +1,93 @@
+<header id="myHeader">
+    <div class="search-bar">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-7">
+                    <div class="social-media">
+                        <ul>
+                            
+                            <li><a href="https://fr-fr.facebook.com/CentreFrancoOmanaiscfo/" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="https://www.instagram.com/cfo_oman" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                            <li><a href="_div_%20_/div__div_https_/www.youtube.com/channel/UC2bY3X5hQlJfWCvTJxbiWQw%20_/div_.html" target="_blank"><i class="fa fa-youtube"></i></a></li>
+                            <li><a href="#" target="_blank"><i class="fa fa-whatsapp"></i>&nbsp;96 66 36 22 (calls &amp; Whatsapp)</a></li>
+                            
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-5 hidden-xs ">
+                    <div class="search form-inline">
+                        <input type="text" placeholder="Search..." id="search" name="search" />
+                        <div class="search-icon"><a href="JavaScript:Void(0);" onclick="showResult();" class=""><i class="fa fa-search" aria-hidden="true"></i></a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main-nav">
+        <div class="container">
+            <div class="row">
+                <div class="logo-bar">
+                    <a href="home.html">
+                        <img src="assets/images/logo.png" />
+                    </a>
+                </div>
+                <div class="col-sm-12">
+                    <div class="nav-bar">
+                        <div class="row visible-xs mobile-header">
+                            <div class="col-xs-9">
+                                <div class="search form-inline">
+                                    <input type="text" placeholder="Search...">
+                                    <div class="search-icon"><a href="#" class=""><i class="fa fa-search" aria-hidden="true"></i></a></div>
+                                </div>
+                            </div>
+                            <div class="col-xs-3">
+                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                            </div>
+                        </div>
+                        <div class="collapse navbar-collapse main-menu" id="myNavbar">
+                            <ul class="">
+
+                                <li>
+                                    <a [routerLink]="['']" (click)="callcomponentanimation()">HOME</a>
+                                </li>
+
+                              <div *ngFor="let menu of headerMenu">
+                               
+                                <div *ngIf="hasSubMenu(menu.headersubmenu.length); then hasmenuBlock; else hasnotmenuBlock"></div>
+                                
+                                <ng-template #hasnotmenuBlock>
+                                <li>
+                                <a [routerLink]="['/page/'+menu.menuUrl]" (click)="callcomponentanimation()">{{menu.menuTitle | uppercase}}  </a>
+                                </li>
+                               </ng-template>
+
+                               <ng-template #hasmenuBlock>
+                                <li class=" dropdown">
+                                    <a href="javascript:void(0)" class="dropdown-toggle mainMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{menu.menuTitle | uppercase}}<span class="caret"></span></a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <ul>
+
+                                            <li *ngFor="let submenu of menu.headersubmenu">
+                                                <a [routerLink]="['/page/'+submenu.subMenuUrl]" (click)="callcomponentanimation()">{{submenu.subMenuTilte| uppercase}}</a>
+                                            </li>
+                                            
+                                            
+                                            
+                                        </ul>
+                                    </div>
+                                </li>
+                                </ng-template>
+                                
+                               
+                            </div>
+                                
+                             
+                            
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
