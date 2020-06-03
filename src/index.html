@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Frontend</title>
+  <title>CFOMAN</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -34,55 +34,10 @@
   <script type="text/javascript" src="assets/js/slick.js"></script>
   <script type="text/javascript" src="assets/js/animate.js"></script>
   
+ 
   <script>
-      function showResult() {
-          var vl = document.getElementById('search').value;
 
-          if (vl != '' && vl != undefined && vl != null) {
-              window.location = '/Search.aspx?Keyword=' + vl;
-          }
-      }
-
-      var TRange = null;
-
-      function findString(str) {
-          if (parseInt(navigator.appVersion) < 4) return;
-          var strFound;
-          if (window.find) {
-
-              // CODE FOR BROWSERS THAT SUPPORT window.find
-
-              strFound = self.find(str);
-              if (!strFound) {
-                  strFound = self.find(str, 0, 1);
-                  while (self.find(str, 0, 1)) continue;
-              }
-          }
-          else if (navigator.appName.indexOf("Microsoft") != -1) {
-
-              // EXPLORER-SPECIFIC CODE
-
-              if (TRange != null) {
-                  TRange.collapse(false);
-                  strFound = TRange.findText(str);
-                  if (strFound) TRange.select();
-              }
-              if (TRange == null || strFound == 0) {
-                  TRange = self.document.body.createTextRange();
-                  strFound = TRange.findText(str);
-                  if (strFound) TRange.select();
-              }
-          }
-          else if (navigator.appName == "Opera") {
-              alert("Opera browsers not supported, sorry...")
-              return;
-          }
-          if (!strFound) alert("String '" + str + "' not found!")
-          return;
-      }
-
-  </script>
-  <script>
+      $(document).ready(function(){
       window.onscroll = function () { myFunction() };
 
       var header = document.getElementById("myHeader");
@@ -95,6 +50,8 @@
               header.classList.remove("sticky");
           }
       }
+
+    });
   </script>
   <script>new WOW().init();</script>
   <script>
@@ -106,7 +63,7 @@
       $(document).on('ready', function () {
 
           if ($("#hfWhatonCount").val() == "0") {
-              $(".whatsOn").slick({
+            setTimeout(() => {    $(".whatsOn").slick({
                   dots: false,
                   arrow: true,
                   infinite: true,
@@ -138,9 +95,10 @@
                       }
                   ]
               });
+            }, 1000);
           }
           else {
-              $(".whatsOn1").slick({
+            setTimeout(() => {   $(".whatsOn1").slick({
                   dots: false,
                   arrow: true,
                   infinite: true,
@@ -172,12 +130,15 @@
                       }
                   ]
               });
+            }, 1000);
           }
 
 
 
 
           // Partner
+
+          setTimeout(() => { 
           $(".our-partner").slick({
               dots: false,
               arrow: false,
@@ -212,6 +173,8 @@
                   }
               ]
           });
+
+        }, 1000); 
 
       });
 

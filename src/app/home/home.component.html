@@ -150,7 +150,11 @@
 
 
 
-    <section class="our-parteners" *ngIf="pagedetails['partners']">
+   
+
+
+    
+    <!-- <section class="our-parteners" *ngIf="pagedetails['partners']">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
@@ -158,21 +162,53 @@
                         <h2>OUR PARTNERS</h2>
                         <span class="underline-b"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
                     </div>
-                    <div class="our-partner slider" >
+                    <div class="our-partner slider">
                         
-                        
-                        <div class="slick-item" *ngFor="let partners of pagedetails['partners']">
+
+
+                        <div class="slick-item" *ngFor="let partner of pagedetails['partners']">
                             <a href="#">
-                                <img src="http://localhost/adminCms/upload/parnters/{{partners.FeaturedImage}}" style="width:188px;height:135px" /></a>
+                                <img src="http://localhost/adminCms/upload/parnters/{{partner.FeaturedImage}}" style="width:188px;height:135px" />
+                            </a>
+                        </div>
+
+                      
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+
+
+    <section class="our-parteners">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="our-parteners-sec">
+                        <h2>OUR PARTNERS</h2>
+                        <span class="underline-b"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+                    </div>
+                    <div class="our-partner slider">
+                        
+                        <div class="slick-item" *ngFor="let partner of pagedetails['partners']">
+                            <a href="#">
+                                <img src="http://localhost/adminCms/upload/parnters/{{partner.FeaturedImage}}" style="width:188px;height:135px" /></a>
                         </div>
                         
-                   
+                        
                         
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    
+    
+
+
 
 
 

@@ -1,0 +1,14 @@
+.menu p {
+    background-color: #F60;
+    border-bottom: 1px solid #FFFFFF;
+    cursor: pointer;
+    padding: 10px;
+    color: #FFFFFF;
+    margin: 0;
+  }
+  
+ul {
+    background-color: #EFEFEF;
+    display: none;
+    margin: 0;
+  }

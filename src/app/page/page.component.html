@@ -55,16 +55,18 @@
             <div class="adults">
                 <div class="row">
                    
-                            <div class="col-sm-12 mt-20">
+                            <div class="col-sm-12">
                                 
-                                <div class="left-title wow fadeInLeft">
-                                    <h2>{{contentmore?.InfoTitle}}</h2>
-                                    <span class="underline-b"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
-                                </div>
+                               
                                 
                                 <div [ngClass]="{'white-box-left': contentmore.InfoBoxed === '1'}" >
 
-                                    <div class="contents"  [innerHTML]='contentmore?.InfoMessage | safeHtml'>
+                                    <div class="left-title">
+                                        <h2>{{contentmore?.InfoTitle}}</h2>
+                                        <span class="underline-b"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+                                    </div>
+
+                                    <div class="contents  mt-20"  [innerHTML]='contentmore?.InfoMessage | safeHtml'>
 
                                 </div>
                                   
@@ -84,8 +86,7 @@
 </div>
 
 
-  
-<section class="wow flipInX contact-form">
+<section class="wow flipInX contact-form" *ngIf="isContactpage(pagedetails[0]?.isContactpage)">
     <div class="container">
         <div class="left-title wow fadeInLeft">
             <h2>General Information</h2>
@@ -95,35 +96,42 @@
             LEAVE US A MESSAGE</p>
 
         <div class="form-section">
+            <form #contactForm="ngForm" (ngSubmit)="contactSubmit()">
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-row">
                         <label>Your Name</label>
-                        <input name="ctl00$ContentPlaceHolder1$FullName" type="text" maxlength="500" id="ContentPlaceHolder1_FullName" class="form-control" placeholder="Enter Your Name" autocomplete="off" />                                
-                        <span id="ContentPlaceHolder1_RequiredFieldValidator2" style="color:Red;display:none;">Required Field</span>
+                        <input #name="ngModel" required type="text" maxlength="500" [class.is-invalid]="name.invalid && name.touched"  class="form-control" placeholder="Enter Your Name" name="name" autocomplete="off" [(ngModel)]="Contactform.name"/>                                
+                        <small class="text-danger" [class.d-none]="name.valid||name.untouched">Name is required</small>
                     </div>
 
                     <div class="form-row">
                         <label>Your Email</label>
-                        <span id="ContentPlaceHolder1_RequiredFieldValidator3" style="color:Red;display:none;">Required Field</span>
-                        <span id="ContentPlaceHolder1_RegularExpressionValidator2" style="color:Red;display:none;">Invalid Email Address</span>
-                        <input name="ctl00$ContentPlaceHolder1$EmailIDTextBox" type="text" maxlength="255" id="ContentPlaceHolder1_EmailIDTextBox" class="form-control" placeholder="Enter Your Email" />
-                    </div>
+                            <input #email="ngModel" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" type="email" maxlength="255" [class.is-invalid]="email.invalid && email.touched"  class="form-control" placeholder="Enter Your Email" name="email" [(ngModel)]="Contactform.email" />
+                            <div *ngIf="email.errors && (email.invalid || email.touched)">
+                                <small class="text-danger" *ngIf="email.touched && email.errors.required">Email is required</small>
+                                <small class="text-danger" *ngIf="email.errors.pattern">Enter a valid email</small>
+                            </div>
+                        </div>
                     <div class="form-row">
                         <label>Your Phone Number</label>
-                        <input name="ctl00$ContentPlaceHolder1$PhoneNoTextBox" type="text" id="ContentPlaceHolder1_PhoneNoTextBox" class="form-control" placeholder="Enter Your Contact Number" />
-                        <span id="ContentPlaceHolder1_RequiredFieldValidator1" MaxLength="50" style="color:Red;display:none;">Required Field</span>
-                        <span id="ContentPlaceHolder1_RegularExpressionValidator1" style="color:Red;visibility:hidden;">Only Numbers allowed</span>
+                        <input #phone="ngModel" required type="tel" pattern="^\d{8}$"  class="form-control" [class.is-invalid]="phone.invalid && phone.touched" placeholder="Enter Your Contact Number" name="phone" [(ngModel)]="Contactform.phone"/>
+                        <div *ngIf="phone.errors && (phone.invalid || phone.touched)">
+                            <small class="text-danger" *ngIf="phone.invalid && phone.touched && phone.errors.required">phone number is required</small>
+                            <small class="text-danger" *ngIf="phone.errors.pattern">Phone number must be 8 digit</small>
+                        </div>
+                        
                     </div>
 
                 </div>
                 <div class="col-sm-6">
                     <div class="form-row">
                         <label>Your Message</label>
-                        <textarea name="ctl00$ContentPlaceHolder1$CommentTextBox" rows="2" cols="20" id="ContentPlaceHolder1_CommentTextBox" class="form-control" placeholder="Enter Your Message">
-</textarea>
+                        <textarea #message="ngModel" required rows="2" cols="20" [class.is-invalid]="message.invalid && message.touched"  class="form-control" placeholder="Enter Your Message" name="message" [(ngModel)]="Contactform.message">
+                    </textarea>
+                    <small class="text-danger" [class.d-none]="message.valid||message.untouched">Message is required</small>
                     </div>
-                    <!-- <div class="form-row">
+                     <!-- <div class="form-row">
                         <label>Security Code</label>
                         <input name="ctl00$ContentPlaceHolder1$SecurityCodeLoginTextBox" type="text" id="ContentPlaceHolder1_SecurityCodeLoginTextBox" class="form-control securitytxt" autocomplete="off" style="width:120px;" />
                         <span class="wpcf7-form-control-wrap your-message">
@@ -131,21 +139,21 @@
                             <span id="ContentPlaceHolder1_ctl00" style="color:Red;display:none;">Required Field</span>
                         </span>
                     </div> -->
-                    <div class="form-row">
+                     <div class="form-row">
                         <div class="form-btn">
-                            <input type="submit" name="ctl00$ContentPlaceHolder1$Submit" value="Submit" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$ContentPlaceHolder1$Submit&quot;, &quot;&quot;, true, &quot;Contact&quot;, &quot;&quot;, false, false))" id="ContentPlaceHolder1_Submit" class="blue-btn" />
+                            <input [disabled]="contactForm.form.invalid" type="submit" name="" value="Submit"  class="btn btn-primary blue-btn" />
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </form>
+        </div> 
 
 
     </div>
-</section>
 
 
-    
-</div>
+</section> 
+
 
 

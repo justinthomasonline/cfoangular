@@ -12,6 +12,7 @@ import { HomeComponent } from './home/home.component';
 import { PageComponent } from './page/page.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TruncateTextPipe } from './truncate-text.pipe';
+import { FormsModule } from   '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { TruncateTextPipe } from './truncate-text.pipe';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [PageService,MenusService],
   bootstrap: [AppComponent]

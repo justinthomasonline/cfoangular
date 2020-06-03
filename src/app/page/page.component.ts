@@ -1,7 +1,7 @@
+import { Contactform } from './../contactform';
 import { PageService } from './../page.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-
 
 
 
@@ -14,6 +14,8 @@ import { ActivatedRoute } from '@angular/router';
 export class PageComponent implements OnInit {
 public pagename = "";
 public pagedetails=[];
+Contactform = new Contactform();
+
 
 constructor(private route: ActivatedRoute, private _pageService:PageService) { 
 
@@ -57,5 +59,28 @@ constructor(private route: ActivatedRoute, private _pageService:PageService) {
      }
      
   }
+
+  isContactpage(isContactPage)
+  {
+
+    if(isContactPage==1)
+     {
+     return true;
+     }else
+     {
+       return false;
+     }
+
+  }
+
+  contactSubmit()
+  {
+    this._pageService.postContactPage(this.Contactform)
+    .subscribe(
+      data=>console.log('sucess',data),
+      error=>console.error('Error', error)
+    );
+  }
+
 
 }
