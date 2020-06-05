@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MenusService } from './../menus.service';
 
+declare var animatecomponent;
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
@@ -20,5 +21,11 @@ export class FooterComponent implements OnInit {
     }); 
 
   }
+
+
+  callcomponentanimation()
+    {
+        animatecomponent();
+    }
 
 }

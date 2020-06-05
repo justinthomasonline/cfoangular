@@ -122,6 +122,7 @@ function reinitializeslick()
 
 function animatecomponent()
 {
+    
   new WOW().init();
   reinitializeslick();
 

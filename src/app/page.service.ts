@@ -33,7 +33,7 @@ export class PageService {
 
   postContactPage(contact:Contactform)
   {
-    
+    console.log(contact)
     return this.http.post<any>(this._urlContact,contact);
   }
 }

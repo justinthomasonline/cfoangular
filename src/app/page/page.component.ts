@@ -15,6 +15,7 @@ export class PageComponent implements OnInit {
 public pagename = "";
 public pagedetails=[];
 Contactform = new Contactform();
+public sentMessage = false;
 
 
 constructor(private route: ActivatedRoute, private _pageService:PageService) { 
@@ -75,11 +76,17 @@ constructor(private route: ActivatedRoute, private _pageService:PageService) {
 
   contactSubmit()
   {
-    this._pageService.postContactPage(this.Contactform)
+    this.sentMessage=true;
+    
+   this._pageService.postContactPage(this.Contactform)
     .subscribe(
       data=>console.log('sucess',data),
       error=>console.error('Error', error)
     );
+
+    
+
+
   }
 
 

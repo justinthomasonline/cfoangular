@@ -45,10 +45,10 @@
                             </div>
                         </div>
                         <div class="collapse navbar-collapse main-menu" id="myNavbar">
-                            <ul class="">
+                            <ul>
 
-                                <li>
-                                    <a [routerLink]="['']" (click)="callcomponentanimation()">HOME</a>
+                                <li (click)="callcomponentanimation()" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                                    <a [routerLink]="['']"  >HOME</a>
                                 </li>
 
                               <div *ngFor="let menu of headerMenu">
@@ -56,19 +56,19 @@
                                 <div *ngIf="hasSubMenu(menu.headersubmenu.length); then hasmenuBlock; else hasnotmenuBlock"></div>
                                 
                                 <ng-template #hasnotmenuBlock>
-                                <li>
-                                <a [routerLink]="['/page/'+menu.menuUrl]" (click)="callcomponentanimation()">{{menu.menuTitle | uppercase}}  </a>
+                                <li  (click)="callcomponentanimation()" routerLinkActive="active">
+                                <a [routerLink]="['/page/'+menu.menuUrl]">{{menu.menuTitle | uppercase}}  </a>
                                 </li>
                                </ng-template>
 
                                <ng-template #hasmenuBlock>
-                                <li class=" dropdown">
+                                <li class=" dropdown" routerLinkActive="active">
                                     <a href="javascript:void(0)" class="dropdown-toggle mainMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{menu.menuTitle | uppercase}}<span class="caret"></span></a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <ul>
 
-                                            <li *ngFor="let submenu of menu.headersubmenu">
-                                                <a [routerLink]="['/page/'+submenu.subMenuUrl]" (click)="callcomponentanimation()">{{submenu.subMenuTilte| uppercase}}</a>
+                                            <li *ngFor="let submenu of menu.headersubmenu"  (click)="callcomponentanimation()" >
+                                                <a [routerLink]="['/page/'+submenu.subMenuUrl]">{{submenu.subMenuTilte| titlecase}}</a>
                                             </li>
                                             
                                             

@@ -32,8 +32,11 @@
             <div class="row">
                 <div class="footer-menu">
                     <ul>
+                        <li (click)="callcomponentanimation()">
+                            <a [routerLink]="['']"  >HOME</a>
+                        </li>
 
-                        <li *ngFor="let menu of footerMenu" class="active-footer">
+                        <li *ngFor="let menu of footerMenu" class="active-footer" (click)="callcomponentanimation()">
 
                             <a [routerLink]="['/page/'+menu.menuUrl]"> {{ menu.menuTitle | uppercase }} </a>
 

@@ -11,6 +11,7 @@ declare var animatecomponent;
 export class HeaderComponent implements OnInit {
   public headerMenu=[];
   
+  
   constructor( private _menuService:MenusService) { }
 
   ngOnInit():void {
@@ -36,7 +37,9 @@ export class HeaderComponent implements OnInit {
 
     callcomponentanimation()
     {
-      animatecomponent();
+        animatecomponent();
     }
+
+    
     
 }
